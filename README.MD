@@ -82,8 +82,6 @@ The JavaScript sections will each consist of following the same series of instru
 
 For this section of the skills check, you'll be using JavaScript to add in functionality to an existing project. You'll be starting with all the HTML and CSS, but no JavaScript. The website is a landing page for an online store and when you're done, users should be able to enter their name and email address into a form and add items into a cart. Since you're just starting out and there is no back end, the functionality will be a little modified for what you can do now.
 
-gotta fix that gif, it's cut off
-
 <img src='./assets/outdoorstore.gif' width='600'>
 
 ## Instructions
