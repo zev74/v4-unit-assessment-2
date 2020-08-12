@@ -106,6 +106,7 @@ In this step, you will write a function that will hide the subscribe form when t
 
 #### index.html
 
+- add a `script` tag at the bottom of your `body` node and connect to `index.js`
 - assign the `toggler` function to the `h3` element on line 25 in an `onclick` event attribute 
 
 ### Step 2 - Form Validation
