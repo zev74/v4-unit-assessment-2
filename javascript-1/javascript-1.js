@@ -30,10 +30,12 @@ const foundZ = nestedLetters[5][2][1]
     Name the new array 'animals'.
 */
 
+//DO NOT EDIT CODE BELOW
 const forest = ['deer', 'bear', 'squirrel']
 const ocean = ['whale', 'shark', 'dolphin', 'octopus', 'starfish']
 const savannnah = ['lion', 'zebra', 'lion', 'giraffe']
 const desert = ['rattlesnake', 'coyote']
+//DO NOT EDIT CODE ABOVE
 
 //CODE HERE
 
@@ -41,7 +43,7 @@ const animals = [...forest, ...ocean, ...savannnah, ...desert]
 
 /*
     Now use the spread operator to make a copy of your animals array.
-    Call the new array 'animalsCopy' and add 'elephant' into the array.
+    Call the new array 'animalsCopy' and add 'elephant' onto the end of the array.
 */
 
 //CODE HERE
@@ -206,6 +208,8 @@ let pairsArray = []
       }
     }
   }
+
+  console.log(pairsArray)
     
 
 //////////////////////////////////PROBLEMS 11-14//////////////////////////////////
@@ -230,7 +234,7 @@ function Dog(name, age, breed, tricks) {
   }
 
 /*
-    Invoke your dog constructer passing in 'Fido' for the name, 3 for the age, 
+    Invoke your dog constructor passing in 'Fido' for the name, 3 for the age, 
     'Jack Russell' for the breed, and an array containing the strings 'sit' and 'shake'.
     Store the result in a variable called 'fido'.
 */
@@ -252,12 +256,13 @@ function Dog(name, age, breed, tricks) {
   }
 
 /*
-    Invoke the call method on bark, passing in fido as the context.
+    Invoke the call method on bark, passing in fido as the context
+    and saving the result to a variable called fidoSpeak.
 */
 
 //CODE HERE
   
-bark.call(fido)
+const fidoSpeak = bark.call(fido)
   
 ////////////////////PROBLEM 13////////////////////
 /*
@@ -297,18 +302,19 @@ const teachStay = teachTrick.bind(fido, 'stay')
 
 /*
     Invoke the apply method on dogIntro, passing in fido as the context 
-    with 'chicken' as the treat and 'tennis ball' as the toy.
+    with 'chicken' as the treat and 'tennis ball' as the toy
+    and save the result to a variable called fidoIntro.
 */
 
 //CODE HERE
-dogIntro.apply(fido, ['chicken', 'tennis ball'])
+const fidoIntro = dogIntro.apply(fido, ['chicken', 'tennis ball'])
   
 
 ////////////////////PROBLEM 15////////////////////
 /*
     Write a constructor function called Phone.
     Phone will build phone objects with brand, model, storage, color, and sold properties.
-    Those values should come from the functions parameters: brand, model, storage, color, sold (in order).
+    Those values should come from the function's parameters: brand, model, storage, color, sold (in order).
 */
 
 //CODE HERE

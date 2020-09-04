@@ -93,13 +93,13 @@ let foods = [
 ////////////////////PROBLEM 3////////////////////
 /*
     A customer has placed an order - they want one of every product that has blue on it. 
-    Using the filter method, return the products that have blue in their color array 
+    Using the filter method on saleProducts, return the products that have blue in their color array 
     to a new variable called 'blueProducts'. 
     (Hint: look up the array method 'includes' on MDN)
 */
   
 //CODE HERE
-  const blueProducts = products.filter(product => product.color.includes('blue'))
+  const blueProducts = saleProducts.filter(product => product.color.includes('blue'))
   
 ////////////////////PROBLEM 4////////////////////
 /*
@@ -223,7 +223,8 @@ const userInfo = {
 
 ////////////////////PROBLEM 9////////////////////
 /* 
-    Set the value of shouldAlert to the value of alerts in gn@rly_c0der_007's settings.
+    Set the value of shouldAlert to the value of alerts in gn@rly_c0der_007's settings
+    using dot notation.
 */
 
 //CODE HERE
@@ -231,7 +232,8 @@ let shouldAlert = userInfo.settings.alerts
 
 ////////////////////PROBLEM 10////////////////////
 /*
-    Set the value of topic below to the last item in gn@rly_c0der_007's topics array.
+    Set the value of topic below to the last item in gn@rly_c0der_007's topics array
+    using dot and/or bracket notation.
 */
 
 //CODE HERE
@@ -239,7 +241,8 @@ let topic = userInfo.topics[3]
 
 ////////////////////PROBLEM 11////////////////////
 /*
-    Set the value of commenterId below to the userId of the first response to gn@rly_c0der_007's 2nd comment.
+    Set the value of commenterId below to the userId of the first response to 
+    gn@rly_c0der_007's 2nd comment using dot/bracket notation.
 */
 
 //CODE HERE
@@ -267,7 +270,9 @@ let commenterId = userInfo.comments[1].responses[0].userId
     name: 'Molly',
     age: 45,
     jobs: ['spy', 'baker', 'pro athlete'],
-    birthday: () => this.age += 1,
+    birthday: function() {
+      this.age += 1
+    },
     favorites: {
       color: 'orange',
       number: 4,

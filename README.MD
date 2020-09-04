@@ -86,7 +86,7 @@ For this section of the skills check, you'll be using JavaScript to add in funct
 
 ## Instructions
 
-In the `vanilla-js` folder, there is a `Specrunner-vanilla.html` file that can be opened in your browser. That is the file that will tell you whether your code is passing tests. There is also an `index.html` file which will show you the actual website when opened in the browser. Feel free to have one or both of these open as you code. If you're stuck, check the Specrunner and see if you can figure out what's wrong. Or you can open up the console (inspect) on the `index.html` page and check for errors there. 
+In the `vanilla-js` folder, there is an `index.html` file which will show you the actual website when opened in the browser. You'll be working in that html file as well as the `index.js` file. If you're stuck, you can open up the console (inspect) in the browser and check for errors there.
 
 ### Step 1 - Hide and Show Subscribe Form
 
