@@ -1,0 +1,138 @@
+/* position: static
+position: relative
+position: absolute
+position: fixed
+position: sticky
+display: block
+display: inline
+display: inline-block
+display: flex
+display: none
+flex direction- row, column
+flex wrap - wrap, no wrap, reverse
+justify-content: flex start
+justify-content: flex end
+justify-content: center
+justify-content: space between
+justify-content: space around
+justify-content: space evenly
+align-items: flex start
+align-items: flex end
+align-items: center 
+align-items: stretch
+align-items: baseline */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #252525;
+    color: white;
+    position: sticky;
+    top: 0;
+}
+
+h1 {
+    color: #2AABE2;
+}
+
+nav {
+    width: 30vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+main {
+    width: 75vw;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+#question-bubble {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    width: 40px;
+    height: 40px;
+    border: 3px solid #252525;
+    border-radius: 50%;
+    background-color: #2AABE2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#left {
+    width: 65%;
+    margin-top: 40px;
+}
+
+.img-container {
+    height: 375px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+
+#large {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: #2AABE2;
+    font-size: 14px;
+}
+
+.gallery-img {
+    width: 175px;
+    margin: 20px;
+}
+
+.author-card {
+    width: 18vw;
+    height: 275px;
+    margin-top: 40px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 50px rgba(102, 75, 75, .3);
+}
+
+.prof-icon {
+    width: 15vw;
+    padding: 20px;
+}
+
+.pop-articles {
+    border-radius: 10px;
+    box-shadow: 0 0 50px rgba(102, 75, 75, .3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    height: 360px;
+    padding-top: 20px;
+    width: 18vw;
+}
+ 
+ol {
+    margin-top: 15px;
+    line-height: 200%;
+    font-size: 14px;
+}
+
+footer {
+    background-color: #2AABE2;
+    padding: 20px;
+}
