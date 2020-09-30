@@ -355,7 +355,8 @@ jasmineRequire.HtmlReporter = function(j$) {
           setMenuModeTo('jasmine-spec-list');
         };
 
-        setMenuModeTo('jasmine-failure-list');
+        //changed spec list to default for better student experience
+        setMenuModeTo('jasmine-spec-list');
 
         var failureNode = find('.jasmine-failures');
         for (i = 0; i < failures.length; i++) {

@@ -36,9 +36,6 @@ let foods = [
 */
 
 //CODE HERE
-foods.forEach(food => {
-  food.calories = (food.carbs * 4) + (food.protein * 4) + (food.fat * 9)
-})
 
 
 //////////////////////////////////PROBLEMS 2-4//////////////////////////////////
@@ -85,10 +82,7 @@ const products = [
 */
 
 //CODE HERE
-const saleProducts = products.map(product => {
-  product.price = product.price * .75
-  return product
-})
+
 
 ////////////////////PROBLEM 3////////////////////
 /*
@@ -99,7 +93,7 @@ const saleProducts = products.map(product => {
 */
 
 //CODE HERE
-const blueProducts = saleProducts.filter(product => product.color.includes('blue'))
+
 
 ////////////////////PROBLEM 4////////////////////
 /*
@@ -109,8 +103,6 @@ const blueProducts = saleProducts.filter(product => product.color.includes('blue
 */
 
 //CODE HERE
-const orderTotal = blueProducts.reduce((a, c) => a + c.price, 0)
-
 
 
 //////////////////////////////////PROBLEMS 5-8//////////////////////////////////
@@ -141,7 +133,7 @@ const shippingInfo = {
   that combines the contactInfo and shippingInfo objects.
 */
 
-const helensInfo = Object.assign(contactInfo, shippingInfo)
+//CODE HERE
 
 ////////////////////PROBLEM 6////////////////////
 /*
@@ -150,21 +142,24 @@ const helensInfo = Object.assign(contactInfo, shippingInfo)
   Overwrite the name property to 'Ellen' and the email address to 'ellen@email.com'.
 */
 
-const ellensInfo = {...helensInfo, name: 'Ellen', email: 'ellen@email.com'}
+//CODE HERE
+
 
 ////////////////////PROBLEM 7////////////////////
 /* 
   Save Ellen's email to a new variable using destructuring.
 */
 
-const {email} = ellensInfo
+//CODE HERE
+
 
 ////////////////////PROBLEM 8////////////////////
 /*
   Save the zip code and state from shippingInfo to new variables using destructuring.
 */
 
-const {zipCode, state} = shippingInfo
+//CODE HERE
+
 
 
 //////////////////////////////////PROBLEMS 9-11//////////////////////////////////
@@ -228,7 +223,7 @@ const userInfo = {
 */
 
 //CODE HERE
-let shouldAlert = userInfo.settings.alerts
+
 
 ////////////////////PROBLEM 10////////////////////
 /*
@@ -237,7 +232,7 @@ let shouldAlert = userInfo.settings.alerts
 */
 
 //CODE HERE
-let topic = userInfo.topics[3]
+
 
 ////////////////////PROBLEM 11////////////////////
 /*
@@ -246,7 +241,6 @@ let topic = userInfo.topics[3]
 */
 
 //CODE HERE
-let commenterId = userInfo.comments[1].responses[0].userId
 
 
 ////////////////////PROBLEM 12////////////////////
@@ -266,33 +260,8 @@ let commenterId = userInfo.comments[1].responses[0].userId
       - create at least 2 kid objects
 */
 
-const person = {
-  name: 'Molly',
-  age: 45,
-  jobs: ['spy', 'baker', 'pro athlete'],
-  birthday: function() {
-    this.age += 1
-  },
-  favorites: {
-    color: 'orange',
-    number: 4,
-    book: 'The Hobbit'
-  },
-  kids: [
-    {
-      name: 'Vera',
-      age: 18
-    },
-    {
-      name: 'Chuck',
-      age: 15
-    },
-    {
-      name: 'Dave',
-      age: 12
-    }
-  ]
-}
+//CODE HERE
+
 
 //////////////////////////////////PROBLEMS 13-14//////////////////////////////////
 /*
@@ -318,7 +287,7 @@ const workout = {
 //let context1 = myFunc
 //let context1 = window
 //let context1 = global
-let context1 = workout
+// let context1 = workout
 
 /*
   What is the context of 'this' in the myFunc function? 
@@ -330,6 +299,6 @@ function myFunc() {
 }
 
 //let context2 = myFunc
-let context2 = window
+// let context2 = window
 //let context2 = global
 //let context2 = workout

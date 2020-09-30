@@ -169,7 +169,7 @@ describe('Skills Check 1', function () {
       expect(state).toEqual('AZ')
     })
     it('should use destructuring', async () => {
-      let response = await countFiles([jsFile], ['{zipCode,state}=shippingInfo', '{state,zipCode}=shippingInfo'])
+      let response = await checkFiles([jsFile], ['{zipCode,state}=shippingInfo', '{state,zipCode}=shippingInfo'])
       expect(response).toBe(true)
     })
   })

@@ -265,8 +265,8 @@ describe('Skills Check 2 -- JavaScript 1', function () {
       expect(typeof phone3.storage).toBe('number')
       expect(typeof phone3.sold).toBe('boolean')
     })
-    it('sell prototype method should exist', () => {
-      let response = countFiles(jsFile, 'Phone.prototype.sell=', 1)
+    it('sell prototype method should exist', async () => {
+      let response = await countFiles(jsFile, 'Phone.prototype.sell=')
       expect(response).toBe(true)
     })
     it('sell method should work properly', () => {
