@@ -1,3 +1,21 @@
+//Helper Functions
+const countFiles = async (path, str, count) => {
+  let response = await axios.get(`http://localhost:4000/api/count?path=${path}&str=${str}&count=${count}`)
+  return response.data
+}
+
+const searchFiles = async (pathArr, strArr) => {
+  let response = await axios.post(`http://localhost:4000/api/search`, {pathArr, strArr})
+  return response.data
+}
+
+const checkFiles = async (pathArr, strArr) => {
+  let response = await axios.post(`http://localhost:4000/api/check`, {pathArr, strArr})
+  return response.data
+}
+
+const jsFile = 'javascript-1/javascript-1.js'
+
 //Test Suite
 describe('Skills Check 2 -- JavaScript 1', function () {
 
@@ -22,6 +40,10 @@ describe('Skills Check 2 -- JavaScript 1', function () {
     it('foundZ should be the correct value', () => {
       expect(foundZ).toBe('z')
     })
+    it('should use bracket notation', async () => {
+      let response = await await countFiles(jsFile, 'foundZ=nestedLetters[5][2][1]', 1)
+      expect(response).toEqual(true)
+    })
   })
   
   describe('Problem 3 - animals', () => {
@@ -31,12 +53,20 @@ describe('Skills Check 2 -- JavaScript 1', function () {
     it('animals should be the correct length', () => {
       expect(animals.length).toBe(14)
     })
+    it('animals created using spread operator', async () => {
+      let response = await searchFiles([jsFile], ['...forest', '...ocean', '...savannah', '...desert'])
+      expect(response).toEqual(true)
+    })
     it('animalsCopy should exist and be the correct length', () => {
       expect(animalsCopy).toBeDefined()
       expect(animalsCopy.length).toBe(15)
     })
     it('elephant should be the last item in animalsCopy', () => {
       expect(animalsCopy[14]).toBe('elephant')
+    })
+    it('animalsCopy created using spread operator', async () => {
+      let response = await searchFiles([jsFile], ['...animals'])
+      expect(response).toEqual(true)
     })
   })
 
@@ -50,6 +80,10 @@ describe('Skills Check 2 -- JavaScript 1', function () {
     it('compareNums should return the number if args are equal', () => {
       expect(compareNums(4,4)).toBe(4)
     })
+    it('should be an arrow function', async () => {
+      let response = await countFiles(jsFile, 'compareNums=(num1,num2)=>', 1)
+      expect(response).toBe(true)
+    })
   })
 
   describe('Problem 5 - bestMovie', () => {
@@ -58,6 +92,10 @@ describe('Skills Check 2 -- JavaScript 1', function () {
     }) 
     it('bestMovie should function properly', () => {
       expect(bestMovie('Sharknado')).toBe('Sharknado is the best movie ever!')
+    })
+    it('should be an arrow function', async () => {
+      let response = await checkFiles([jsFile], ['bestMovie=(movie)=>', 'bestMovie=movie=>'])
+      expect(response).toBe(true)
     })
   })
 
@@ -68,11 +106,19 @@ describe('Skills Check 2 -- JavaScript 1', function () {
     it('jsNinja should return the correct string', () => {
       expect(jsNinja()).toBe('I am a JavaScript ninja!')
     })
+    it('should be an arrow function', async () => {
+      let response = await checkFiles([jsFile], ['jsNinja=()=>', 'jsNinja=_=>'])
+      expect(response).toBe(true)
+    })
   })
 
   describe('Problem 7 - gameInfo', () => {
     it('gameInfo should not contain a rating property', () => {
       expect(gameInfo.rating).toBe(undefined)
+    })
+    it('should use delete', async () => {
+      let response = await countFiles(jsFile, 'deletegameInfo.rating', 1)
+      expect(response).toBe(true)
     })
   })
 
@@ -83,14 +129,31 @@ describe('Skills Check 2 -- JavaScript 1', function () {
     it('shapes should not have triangle, pentagon, or septagon properties', () => {
       expect(shapes.triangle && shapes.pentagon && shapes.septagon).toBe(undefined)
     })
+    it('should use a for in loop', async () => {
+      let response = await checkFiles([jsFile], ['for(letpropin', 'for(letkeyin'])
+      expect(response).toBe(true)
+    })
   })
 
   describe('Problem 9 - classes', () => {
     it(`all class objects' inPerson values should be false`, () => {
-      expect(classes[0].inPerson && classes[1].inPerson && classes[2].inPerson).toBe(false)
+      expect(classes[0].inPerson === false 
+            && classes[1].inPerson === false 
+            && classes[2].inPerson === false).toBe(true)
     })
     it(`all class objects' homework values should be false`, () => {
-      expect(classes[0].homework && classes[1].homework && classes[2].homework).toBe(false)
+      expect(classes[0].homework === false 
+            && classes[1].homework === false 
+            && classes[2].homework === false).toBe(true)
+    })
+    it('should use a for loop', async () => {
+      let response = await countFiles(jsFile, 'for(leti=', 1)
+      expect(response).toBe(true)
+    })
+    it('should use a for in loop', async () => {
+      let responseOne = await countFiles(jsFile, 'for(letpropin', 2)
+      let responseTwo = await countFiles(jsFile, 'for(letkeyin', 2)
+      expect(responseOne || responseTwo).toBe(true)
     })
   })
 
@@ -135,6 +198,10 @@ describe('Skills Check 2 -- JavaScript 1', function () {
       expect(fidoSpeak).toBeDefined()
       expect(fidoSpeak).toBe('Fido says bark!')
     })
+    it('should use call method', async () => {
+      let response = await countFiles(jsFile, 'fidoSpeak=bark.call(', 1) 
+      expect(response).toBe(true)
+    })
   })
 
   describe('Problem 13 - teachTrick & teachStay', () => {
@@ -145,6 +212,10 @@ describe('Skills Check 2 -- JavaScript 1', function () {
       expect(teachStay).toBeDefined()
       expect(teachStay()).toEqual(['sit', 'shake', 'stay'])
     })
+    it('should use bind to provide context', async () => {
+      let response = await countFiles(jsFile, 'teachStay=teachTrick.bind(', 1)
+      expect(response).toBe(true)
+    })
   })
 
   describe('Problem 14 - dogIntro & fidoIntro', () => {
@@ -153,6 +224,10 @@ describe('Skills Check 2 -- JavaScript 1', function () {
     })
     it('fidoIntro should exist and contain the correct value', () => {
       expect(fidoIntro).toBe('Fido is a Jack Russell that loves chicken and their tennis ball!')
+    })
+    it('should use apply to proviude context', async () => {
+      let response = await countFiles(jsFile, 'fidoIntro=dogIntro.apply(fido,[', 1)
+      expect(response).toBe(true)
     })
   })
 
@@ -191,7 +266,8 @@ describe('Skills Check 2 -- JavaScript 1', function () {
       expect(typeof phone3.sold).toBe('boolean')
     })
     it('sell prototype method should exist', () => {
-      expect(phone1.sell).toBeDefined()
+      let response = countFiles(jsFile, 'Phone.prototype.sell=', 1)
+      expect(response).toBe(true)
     })
     it('sell method should work properly', () => {
       let phoneTest = new Phone('Apple', 'iPhone 11', 128, 'black', false)

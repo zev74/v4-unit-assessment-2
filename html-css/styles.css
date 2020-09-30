@@ -1,26 +1,14 @@
-/* position: static
-position: relative
-position: absolute
-position: fixed
-position: sticky
-display: block
-display: inline
-display: inline-block
-display: flex
-display: none
-flex direction- row, column
-flex wrap - wrap, no wrap, reverse
-justify-content: flex start
-justify-content: flex end
-justify-content: center
-justify-content: space between
-justify-content: space around
-justify-content: space evenly
-align-items: flex start
-align-items: flex end
-align-items: center 
-align-items: stretch
-align-items: baseline */
+/* 
+
+these are the colors used in the example
+you can use them if you'd like or you can choose your own
+
+black - rgb(37, 37, 37)
+blue - rgb(42, 171, 226)
+shadow - rgba(102, 75, 75, .3)
+white - rgb(255, 255, 255) (default value) 
+
+*/
 
 * {
     box-sizing: border-box;
