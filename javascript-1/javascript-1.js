@@ -18,7 +18,9 @@
     called 'foundZ'.
 */
 
+//DO NOT EDIT CODE BELOW
 const nestedLetters = ['m', 'g', 'e', 'q', 'h', ['n', 'b', ['v', 'z', 'y', 'r']], 'a']
+//DO NOT EDIT CODE ABOVE
 
 //CODE HERE
 
@@ -49,7 +51,7 @@ const desert = ['rattlesnake', 'coyote']
 ////////////////////PROBLEM 4////////////////////
 /*
     Write an arrow function called 'compareNums' that takes in 2 parameters, 
-    which will be numbers. 
+    which will be numbers, num1 and num2. 
     The function should return the bigger number. 
     If the numbers are the same, just return the number.
 */
@@ -60,7 +62,7 @@ const desert = ['rattlesnake', 'coyote']
 ////////////////////PROBLEM 5////////////////////
 /*
     Write a one line arrow function called 'bestMovie' that takes in one parameter,
-    which will be a string of a movie title. 
+    called movie, which will be a string of a movie title. 
     The function should return the string: 'MOVEIEPARAM is the best movie ever!'. 
     For example, if we passed in 'Sharknado', 
     we would expect the function to return 'Sharknado is the best movie ever!'
@@ -283,6 +285,11 @@ let pairsArray = []
 
 //CODE HERE
 
+// let phone1 =
+
+// let phone2 =
+
+// let phone3 =
   
 /*
     Last, add a prototype method to Phone.
