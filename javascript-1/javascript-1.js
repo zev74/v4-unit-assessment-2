@@ -33,13 +33,13 @@ const foundZ = nestedLetters[5][2][1]
 //DO NOT EDIT CODE BELOW
 const forest = ['deer', 'bear', 'squirrel']
 const ocean = ['whale', 'shark', 'dolphin', 'octopus', 'starfish']
-const savannnah = ['lion', 'zebra', 'lion', 'giraffe']
+const savannah = ['lion', 'zebra', 'lion', 'giraffe']
 const desert = ['rattlesnake', 'coyote']
 //DO NOT EDIT CODE ABOVE
 
 //CODE HERE
 
-const animals = [...forest, ...ocean, ...savannnah, ...desert]
+const animals = [...forest, ...ocean, ...savannah, ...desert]
 
 /*
     Now use the spread operator to make a copy of your animals array.

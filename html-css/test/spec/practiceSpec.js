@@ -70,7 +70,7 @@ describe('HTML & CSS Section', () => {
 
   })
 
-  describe('The following CSS properties and values are used in styles.css', function () {
+  describe('The following CSS properties and values are used in styles.css', () => {
     let cssFiles = ['html-css/styles.css']
    
     it('position, display, flex', async () => {
@@ -103,7 +103,7 @@ describe('HTML & CSS Section', () => {
       expect(response).toEqual(true)
     })
 
-    it('uses relative units somewhere', () => {
+    it('uses relative units somewhere', async () => {
       let itemsToCheck = [
         '%;',
         'vw;',

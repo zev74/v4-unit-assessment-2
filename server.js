@@ -58,7 +58,7 @@ app.post('/api/search', (req, res) => {
     for (let i = 0; i < strArr.length; i++) {
         //create a regex version of each string
         let regExStr = parseToRegEx(strArr[i])
-
+        console.log(regExStr)
         for (let j = 0; j < pathArr.length; j++) {
             //stringify student file & push found string into actualInstances, if it isn't there yet
             let fileStringified = stringify(pathArr[j])

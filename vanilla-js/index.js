@@ -35,8 +35,8 @@ const validateForm = () => {
     }
 }
 
-form.addEventListener('submit', e => {
-    e.preventDefault()
+form.addEventListener('submit', event => {
+    event.preventDefault()
     console.log('you clicked submit')
     validateForm()
 })
