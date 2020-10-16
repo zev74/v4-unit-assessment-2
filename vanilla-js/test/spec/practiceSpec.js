@@ -75,7 +75,6 @@ describe('Week Two Skills Check - Vanilla JS', () => {
         'formBtn.innerText=`X`'
       ],
       response = await checkFiles([jsFile], itemsToCheck)
-      console.log(formBtn)
       expect(response).toBe(true)
     })
   })
