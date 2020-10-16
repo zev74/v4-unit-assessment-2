@@ -80,7 +80,7 @@ label {
 .hero {
     width: calc(100vw - 400px);
     height: 100vh;
-    background-image: url('./river.png');
+    background-image: url('./assets/river.png');
     background-size: 100vw 100vh;
     background-position: -250px;
     background-repeat: no-repeat;
