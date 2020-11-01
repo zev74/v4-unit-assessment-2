@@ -269,7 +269,7 @@ const userInfo = {
   context of 'this' in an object and function, respectively.
 */
 
-////////////////////PROBLEM 12////////////////////
+////////////////////PROBLEM 13////////////////////
 /*
   What is the context of 'this' in the workout object? 
   Uncomment the correct answer below.
@@ -289,6 +289,8 @@ const workout = {
 //let context1 = global
 // let context1 = workout
 
+
+////////////////////PROBLEM 14////////////////////
 /*
   What is the context of 'this' in the myFunc function? 
   Uncomment the correct answer below.

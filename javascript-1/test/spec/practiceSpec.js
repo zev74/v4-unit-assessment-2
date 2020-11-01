@@ -1,23 +1,23 @@
 //Helper Functions
 const countFiles = async (path, str, count) => {
-  let response = await axios.get(`http://localhost:4000/api/count?path=${path}&str=${str}&count=${count}`)
+  let response = await axios.get(`http://localhost:5782/api/count?path=${path}&str=${str}&count=${count}`)
   return response.data
 }
 
 const searchFiles = async (pathArr, strArr) => {
-  let response = await axios.post(`http://localhost:4000/api/search`, {pathArr, strArr})
+  let response = await axios.post(`http://localhost:5782/api/search`, {pathArr, strArr})
   return response.data
 }
 
 const checkFiles = async (pathArr, strArr) => {
-  let response = await axios.post(`http://localhost:4000/api/check`, {pathArr, strArr})
+  let response = await axios.post(`http://localhost:5782/api/check`, {pathArr, strArr})
   return response.data
 }
 
 const jsFile = 'javascript-1/javascript-1.js'
 
 //Test Suite
-describe('Skills Check 2 -- JavaScript 1', function () {
+describe('Unit Assessment 2 -- JavaScript 1', () => {
 
   describe('Problem 1 - myArr', () => {
     it('myArr array should exist', () => {
@@ -41,7 +41,7 @@ describe('Skills Check 2 -- JavaScript 1', function () {
       expect(foundZ).toBe('z')
     })
     it('should use bracket notation', async () => {
-      let response = await await countFiles(jsFile, 'foundZ=nestedLetters[5][2][1]', 1)
+      let response = await countFiles(jsFile, 'foundZ=nestedLetters[5][2][1]')
       expect(response).toEqual(true)
     })
   })
@@ -59,13 +59,15 @@ describe('Skills Check 2 -- JavaScript 1', function () {
     })
     it('animalsCopy should exist and be the correct length', () => {
       expect(animalsCopy).toBeDefined()
+    })
+    it('animalsCopy should be the correct length', () => {
       expect(animalsCopy.length).toBe(15)
     })
     it('elephant should be the last item in animalsCopy', () => {
       expect(animalsCopy[14]).toBe('elephant')
     })
     it('animalsCopy created using spread operator', async () => {
-      let response = await searchFiles([jsFile], ['...animals'])
+      let response = await countFiles(jsFile, '...animals')
       expect(response).toEqual(true)
     })
   })
@@ -107,7 +109,11 @@ describe('Skills Check 2 -- JavaScript 1', function () {
       expect(jsNinja()).toBe('I am a JavaScript ninja!')
     })
     it('should be an arrow function', async () => {
-      let response = await checkFiles([jsFile], ['jsNinja=()=>', 'jsNinja=_=>'])
+      const itemsToCheck = [
+        'jsNinja=()=>',
+        'jsNinja=_=>'
+      ]
+      const response = await checkFiles([jsFile], itemsToCheck)
       expect(response).toBe(true)
     })
   })
@@ -117,7 +123,7 @@ describe('Skills Check 2 -- JavaScript 1', function () {
       expect(gameInfo.rating).toBe(undefined)
     })
     it('should use delete', async () => {
-      let response = await countFiles(jsFile, 'deletegameInfo.rating', 1)
+      let response = await countFiles(jsFile, 'deletegameInfo.rating')
       expect(response).toBe(true)
     })
   })
@@ -130,7 +136,11 @@ describe('Skills Check 2 -- JavaScript 1', function () {
       expect(shapes.triangle && shapes.pentagon && shapes.septagon).toBe(undefined)
     })
     it('should use a for in loop', async () => {
-      let response = await checkFiles([jsFile], ['for(letpropin', 'for(letkeyin'])
+      const itemsToCheck = [
+        'for(letpropin',
+        'for(letkeyin'
+      ]
+      const response = await checkFiles([jsFile], itemsToCheck)
       expect(response).toBe(true)
     })
   })
@@ -181,10 +191,16 @@ describe('Skills Check 2 -- JavaScript 1', function () {
       expect(sarge.breed).toBe('schnauzer')
       expect(sarge.tricks.length).toBe(2)
     })
-    it('fido should contain the correct values', () => {
+    it('fido should be named Fido', () => {
       expect(fido.name).toBe('Fido')
+    })
+    it('fido should be 3 years old', () => {
       expect(fido.age).toBe(3)
+    })
+    it('fido should be a Jack Russell', () => {
       expect(fido.breed).toBe('Jack Russell')
+    })
+    it('fido should know sit and shake', () => {
       expect(fido.tricks[0]).toBe('sit')
       expect(fido.tricks[1]).toBe('shake')
     })
@@ -194,8 +210,10 @@ describe('Skills Check 2 -- JavaScript 1', function () {
     it('bark should exist', () => {
       expect(bark).toBeDefined()
     })
-    it('fidoSpeak should exist and contain the correct value', () => {
+    it('fidoSpeak should exist', () => {
       expect(fidoSpeak).toBeDefined()
+    })
+    it('fidoSpeak shoulc contain the correct value', () => {
       expect(fidoSpeak).toBe('Fido says bark!')
     })
     it('should use call method', async () => {
@@ -208,8 +226,10 @@ describe('Skills Check 2 -- JavaScript 1', function () {
     it('teachTrick should exist', () => {
       expect(teachTrick).toBeDefined()
     })
-    it('teachStay should exist and return the correct value', () => {
+    it('teachStay should exist', () => {
       expect(teachStay).toBeDefined()
+    })
+    it('teachStay should return the correct value', () => {
       expect(teachStay()).toEqual(['sit', 'shake', 'stay'])
     })
     it('should use bind to provide context', async () => {
@@ -222,7 +242,10 @@ describe('Skills Check 2 -- JavaScript 1', function () {
     it('dogIntro should exist', () => {
       expect(dogIntro).toBeDefined()
     })
-    it('fidoIntro should exist and contain the correct value', () => {
+    it('fidoIntro should exist', () => {
+      expect(fidoIntro).toBeDefined()
+    })
+    it('fidoIntro should contain the correct value', () => {
       expect(fidoIntro).toBe('Fido is a Jack Russell that loves chicken and their tennis ball!')
     })
     it('should use apply to proviude context', async () => {
@@ -231,7 +254,7 @@ describe('Skills Check 2 -- JavaScript 1', function () {
     })
   })
 
-  describe('Problem 15 - Phone Constructor etc.', () => {
+  describe('Problem 15 - Phone Constructor', () => {
     it('Phone constructor should exist', () => {
       expect(Phone).toBeDefined()
     })
@@ -243,30 +266,68 @@ describe('Skills Check 2 -- JavaScript 1', function () {
       expect(phoneTest.color).toEqual('black')
       expect(phoneTest.sold).toEqual(false)
     })
-    it('phone1, phone2, and phone3 should exist', () => {
-      expect(phone1).toBeDefined()
-      expect(phone2).toBeDefined()
-      expect(phone3).toBeDefined()
+    describe('phone1', () => {
+      it('phone1 should exist', () => {
+        expect(phone1).toBeDefined()
+      })
+      it('phone1 brand should be a string', () => {
+        expect(typeof phone1.brand).toBe('string')
+      })
+      it('phone1 model should be a string', () => {
+        expect(typeof phone1.model).toBe('string')
+      })
+      it('phone1 color should be a string', () => {
+        expect(typeof phone1.color).toBe('string')
+      })
+      it('phone1 storage should be a number', () => {
+        expect(typeof phone1.storage).toBe('number')
+      })
+      it('phone1 sold value should be a boolean', () => {
+        expect(typeof phone1.sold).toBe('boolean')
+      })
     })
-    it('phone1, phone2, and phone3 values should be correct data types', () => {
-      expect(typeof phone1.brand).toBe('string')
-      expect(typeof phone1.model).toBe('string')
-      expect(typeof phone1.color).toBe('string')
-      expect(typeof phone1.storage).toBe('number')
-      expect(typeof phone1.sold).toBe('boolean')
-      expect(typeof phone2.brand).toBe('string')
-      expect(typeof phone2.model).toBe('string')
-      expect(typeof phone2.color).toBe('string')
-      expect(typeof phone2.storage).toBe('number')
-      expect(typeof phone2.sold).toBe('boolean')
-      expect(typeof phone3.brand).toBe('string')
-      expect(typeof phone3.model).toBe('string')
-      expect(typeof phone3.color).toBe('string')
-      expect(typeof phone3.storage).toBe('number')
-      expect(typeof phone3.sold).toBe('boolean')
+    describe('phone2', () => {
+      it('phone2 should exist', () => {
+        expect(phone2).toBeDefined()
+      })
+      it('phone2 brand should be a string', () => {
+        expect(typeof phone2.brand).toBe('string')
+      })
+      it('phone2 model should be a string', () => {
+        expect(typeof phone2.model).toBe('string')
+      })
+      it('phone2 color should be a string', () => {
+        expect(typeof phone2.color).toBe('string')
+      })
+      it('phone2 storage should be a number', () => {
+        expect(typeof phone2.storage).toBe('number')
+      })
+      it('phone2 sold value should be a boolean', () => {
+        expect(typeof phone2.sold).toBe('boolean')
+      })
+    })
+    describe('phone3', () => {
+      it('phone3 should exist', () => {
+        expect(phone3).toBeDefined()
+      })
+      it('phone3 brand should be a string', () => {
+        expect(typeof phone3.brand).toBe('string')
+      })
+      it('phone3 model should be a string', () => {
+        expect(typeof phone3.model).toBe('string')
+      })
+      it('phone3 color should be a string', () => {
+        expect(typeof phone3.color).toBe('string')
+      })
+      it('phone3 storage should be a number', () => {
+        expect(typeof phone3.storage).toBe('number')
+      })
+      it('phone3 sold value should be a boolean', () => {
+        expect(typeof phone3.sold).toBe('boolean')
+      })
     })
     it('sell prototype method should exist', async () => {
-      let response = await countFiles(jsFile, 'Phone.prototype.sell=')
+      let response = await countFiles(jsFile, 'Phone.prototype.sell=', 1)
       expect(response).toBe(true)
     })
     it('sell method should work properly', () => {
