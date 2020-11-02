@@ -155,7 +155,8 @@ const shippingInfo = {
 
 ////////////////////PROBLEM 8////////////////////
 /*
-  Save the zip code and state from shippingInfo to new variables using destructuring.
+  In a single expression (one line), save the zip code and state 
+  from shippingInfo to new variables using destructuring.
 */
 
 //CODE HERE
