@@ -1,16 +1,16 @@
 //Helper Functions
 const countFiles = async (path, str, count) => {
-  let response = await axios.get(`http://localhost:5782/api/count?path=${path}&str=${str}&count=${count}`)
+  const response = await axios.get(`http://localhost:5782/api/count?path=${path}&str=${str}&count=${count}`)
   return response.data
 }
 
 const searchFiles = async (pathArr, strArr) => {
-  let response = await axios.post(`http://localhost:5782/api/search`, {pathArr, strArr})
+  const response = await axios.post(`http://localhost:5782/api/search`, {pathArr, strArr})
   return response.data
 }
 
 const checkFiles = async (pathArr, strArr) => {
-  let response = await axios.post(`http://localhost:5782/api/check`, {pathArr, strArr})
+  const response = await axios.post(`http://localhost:5782/api/check`, {pathArr, strArr})
   return response.data
 }
 
@@ -41,7 +41,7 @@ describe('Unit Assessment 2 -- JavaScript 1', () => {
       expect(foundZ).toBe('z')
     })
     it('should use bracket notation', async () => {
-      let response = await countFiles(jsFile, 'foundZ=nestedLetters[5][2][1]')
+      const response = await countFiles(jsFile, 'foundZ=nestedLetters[5][2][1]')
       expect(response).toEqual(true)
     })
   })
@@ -54,7 +54,7 @@ describe('Unit Assessment 2 -- JavaScript 1', () => {
       expect(animals.length).toBe(14)
     })
     it('animals created using spread operator', async () => {
-      let response = await searchFiles([jsFile], ['...forest', '...ocean', '...savannah', '...desert'])
+      const response = await searchFiles([jsFile], ['...forest', '...ocean', '...savannah', '...desert'])
       expect(response).toEqual(true)
     })
     it('animalsCopy should exist and be the correct length', () => {
@@ -67,7 +67,7 @@ describe('Unit Assessment 2 -- JavaScript 1', () => {
       expect(animalsCopy[14]).toBe('elephant')
     })
     it('animalsCopy created using spread operator', async () => {
-      let response = await countFiles(jsFile, '...animals')
+      const response = await countFiles(jsFile, '...animals')
       expect(response).toEqual(true)
     })
   })
@@ -83,7 +83,7 @@ describe('Unit Assessment 2 -- JavaScript 1', () => {
       expect(compareNums(4,4)).toBe(4)
     })
     it('should be an arrow function', async () => {
-      let response = await countFiles(jsFile, 'compareNums=(num1,num2)=>', 1)
+      const response = await countFiles(jsFile, 'compareNums=(num1,num2)=>', 1)
       expect(response).toBe(true)
     })
   })
@@ -96,7 +96,7 @@ describe('Unit Assessment 2 -- JavaScript 1', () => {
       expect(bestMovie('Sharknado')).toBe('Sharknado is the best movie ever!')
     })
     it('should be an arrow function', async () => {
-      let response = await checkFiles([jsFile], ['bestMovie=(movie)=>', 'bestMovie=movie=>'])
+      const response = await checkFiles([jsFile], ['bestMovie=(movie)=>', 'bestMovie=movie=>'])
       expect(response).toBe(true)
     })
   })
@@ -123,7 +123,7 @@ describe('Unit Assessment 2 -- JavaScript 1', () => {
       expect(gameInfo.rating).toBe(undefined)
     })
     it('should use delete', async () => {
-      let response = await countFiles(jsFile, 'deletegameInfo.rating')
+      const response = await countFiles(jsFile, 'deletegameInfo.rating')
       expect(response).toBe(true)
     })
   })
@@ -157,12 +157,12 @@ describe('Unit Assessment 2 -- JavaScript 1', () => {
             && classes[2].homework === false).toBe(true)
     })
     it('should use a for loop', async () => {
-      let response = await countFiles(jsFile, 'for(leti=', 1)
+      const response = await countFiles(jsFile, 'for(leti=', 1)
       expect(response).toBe(true)
     })
     it('should use a for in loop', async () => {
-      let responseOne = await countFiles(jsFile, 'for(letpropin', 2)
-      let responseTwo = await countFiles(jsFile, 'for(letkeyin', 2)
+      const responseOne = await countFiles(jsFile, 'for(letpropin', 2)
+      const responseTwo = await countFiles(jsFile, 'for(letkeyin', 2)
       expect(responseOne || responseTwo).toBe(true)
     })
   })
@@ -185,7 +185,7 @@ describe('Unit Assessment 2 -- JavaScript 1', () => {
       expect(Dog).toBeDefined()
     })
     it('Dog constructor should create dog objects correctly', () => {
-      let sarge = new Dog('Sarge', 10, 'schnauzer', ['roll over', 'stay'])
+      const sarge = new Dog('Sarge', 10, 'schnauzer', ['roll over', 'stay'])
       expect(sarge.name).toBe('Sarge')
       expect(sarge.age).toBe(10)
       expect(sarge.breed).toBe('schnauzer')
@@ -217,7 +217,7 @@ describe('Unit Assessment 2 -- JavaScript 1', () => {
       expect(fidoSpeak).toBe('Fido says bark!')
     })
     it('should use call method', async () => {
-      let response = await countFiles(jsFile, 'fidoSpeak=bark.call(', 1) 
+      const response = await countFiles(jsFile, 'fidoSpeak=bark.call(', 1) 
       expect(response).toBe(true)
     })
   })
@@ -233,7 +233,7 @@ describe('Unit Assessment 2 -- JavaScript 1', () => {
       expect(teachStay()).toEqual(['sit', 'shake', 'stay'])
     })
     it('should use bind to provide context', async () => {
-      let response = await countFiles(jsFile, 'teachStay=teachTrick.bind(', 1)
+      const response = await countFiles(jsFile, 'teachStay=teachTrick.bind(', 1)
       expect(response).toBe(true)
     })
   })
@@ -249,7 +249,7 @@ describe('Unit Assessment 2 -- JavaScript 1', () => {
       expect(fidoIntro).toBe('Fido is a Jack Russell that loves chicken and their tennis ball!')
     })
     it('should use apply to proviude context', async () => {
-      let response = await countFiles(jsFile, 'fidoIntro=dogIntro.apply(fido,[', 1)
+      const response = await countFiles(jsFile, 'fidoIntro=dogIntro.apply(fido,[', 1)
       expect(response).toBe(true)
     })
   })
@@ -259,7 +259,7 @@ describe('Unit Assessment 2 -- JavaScript 1', () => {
       expect(Phone).toBeDefined()
     })
     it('Phone constructor should work correctly', () => {
-      let phoneTest = new Phone('Apple', 'iPhone 11', 128, 'black', false)
+      const phoneTest = new Phone('Apple', 'iPhone 11', 128, 'black', false)
       expect(phoneTest.brand).toEqual('Apple')
       expect(phoneTest.model).toEqual('iPhone 11')
       expect(phoneTest.storage).toEqual(128)
@@ -327,11 +327,11 @@ describe('Unit Assessment 2 -- JavaScript 1', () => {
       })
     })
     it('sell prototype method should exist', async () => {
-      let response = await countFiles(jsFile, 'Phone.prototype.sell=', 1)
+      const response = await countFiles(jsFile, 'Phone.prototype.sell=', 1)
       expect(response).toBe(true)
     })
     it('sell method should work properly', () => {
-      let phoneTest = new Phone('Apple', 'iPhone 11', 128, 'black', false)
+      const phoneTest = new Phone('Apple', 'iPhone 11', 128, 'black', false)
       phoneTest.sell()
       expect(phoneTest.sell()).toEqual('Apple iPhone 11 has been sold.')
       expect(phoneTest.sold).toBe(true)

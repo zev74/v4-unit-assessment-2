@@ -1,20 +1,20 @@
 //Test Suite
 const countFiles = async (path, str, count) => {
-  let response = await axios.get(`http://localhost:5782/api/count?path=${path}&str=${str}&count=${count}`)
-  return response.data
-},
-
-checkFiles = async (pathArr, strArr) => {
-  let response = await axios.post(`http://localhost:5782/api/check`, {pathArr, strArr})
-  return response.data
-},
-
-searchFiles = async (pathArr, strArr) => {
-  let response = await axios.post(`http://localhost:5782/api/search`, {pathArr, strArr})
+  const response = await axios.get(`http://localhost:5782/api/count?path=${path}&str=${str}&count=${count}`)
   return response.data
 }
 
-jsFile = 'vanilla-js/index.js',
+const checkFiles = async (pathArr, strArr) => {
+  const response = await axios.post(`http://localhost:5782/api/check`, {pathArr, strArr})
+  return response.data
+}
+
+const searchFiles = async (pathArr, strArr) => {
+  const response = await axios.post(`http://localhost:5782/api/search`, {pathArr, strArr})
+  return response.data
+}
+
+const jsFile = 'vanilla-js/index.js',
 htmlFile = 'vanilla-js/index.html'
 
 
@@ -28,8 +28,8 @@ describe('Unit Assessment 2 - JS in the DOM', () => {
         `formBtn=document.getElementById('close-form')`,
         `formBtn=document.getElementById("close-form")`,
         'formBtn=document.getElementById(`close-form`)'
-      ],
-      response = await checkFiles([jsFile], itemsToCheck)
+      ]
+      const response = await checkFiles([jsFile], itemsToCheck)
       expect(response).toBe(true)
     })
     it(`form variable should exist`, () => {
@@ -40,8 +40,8 @@ describe('Unit Assessment 2 - JS in the DOM', () => {
         `form=document.querySelector('form')`,
         `form=document.querySelector("form")`,
         'form=document.querySelector(`form`)'
-      ],
-      response = await checkFiles([jsFile], itemsToCheck)
+      ]
+      const response = await checkFiles([jsFile], itemsToCheck)
       expect(response).toBe(true)
     })
     it(`toggler function should exist`, () => {
@@ -52,8 +52,8 @@ describe('Unit Assessment 2 - JS in the DOM', () => {
         `form.classList.toggle('hide')`,
         `form.classList.toggle("hide")`,
         'form.classList.toggle(`hide`)'
-      ], 
-      response = await checkFiles([jsFile], itemsToCheck)
+      ] 
+      const response = await checkFiles([jsFile], itemsToCheck)
       expect(response).toBe(true)
     })
     it(`should check if formBtn's innerText is strictly equal to X`, async () => {
@@ -61,8 +61,8 @@ describe('Unit Assessment 2 - JS in the DOM', () => {
         `formBtn.innerText==='X'`,
         `formBtn.innerText==="X"`,
         'formBtn.innerText===`X`'
-      ],
-      response = await checkFiles([jsFile], itemsToCheck)
+      ]
+      const response = await checkFiles([jsFile], itemsToCheck)
       expect(response).toBe(true)
     })
     it(`should change the innerText value from a + to an X and vice versa`, async () => {
@@ -73,9 +73,8 @@ describe('Unit Assessment 2 - JS in the DOM', () => {
         `formBtn.innerText="X"`,
         'formBtn.innerText=`+`', 
         'formBtn.innerText=`X`'
-      ],
-      response = await checkFiles([jsFile], itemsToCheck)
-      console.log(formBtn)
+      ]
+      const response = await checkFiles([jsFile], itemsToCheck)
       expect(response).toBe(true)
     })
   })
@@ -87,16 +86,16 @@ describe('Unit Assessment 2 - JS in the DOM', () => {
         `<scriptsrc='index.js'></script>`,
         `<scriptsrc="./index.js"></script>`,
         `<scriptsrc='./index.js'></script>`
-      ],
-      response = await checkFiles([htmlFile], itemsToCheck)
+      ]
+      const response = await checkFiles([htmlFile], itemsToCheck)
       expect(response).toBe(true)
     })
     it(`toggler should be added in an onclick event`, async () => {
       const itemsToCheck = [
         `onclick="toggler()"`,
         `onclick='toggler()'`
-      ],
-      response = await checkFiles([htmlFile], itemsToCheck)
+      ]
+      const response = await checkFiles([htmlFile], itemsToCheck)
       expect(response).toBe(true)
     })
   })
@@ -106,8 +105,8 @@ describe('Unit Assessment 2 - JS in the DOM', () => {
       const itemsToCheck = [
         'nameInput=',
         'emailInput='
-      ],
-      response = await searchFiles([jsFile], itemsToCheck)
+      ]
+      const response = await searchFiles([jsFile], itemsToCheck)
       expect(response).toBe(true)
     })
     it(`should use getElementsByTagName to get name and email inputs`, async () => {
@@ -118,8 +117,8 @@ describe('Unit Assessment 2 - JS in the DOM', () => {
         `emailInput=document.getElementsByTagName("input")[1]`,
         'nameInput=document.getElementsByTagName(`input`)[0]',
         'emailInput=document.getElementsByTagName(`input`)[1]',
-      ],
-      response = await checkFiles([jsFile], itemsToCheck)
+      ]
+      const response = await checkFiles([jsFile], itemsToCheck)
       expect(response).toBe(true)
     })
     it(`emailList should exist and be an array`, () => {
@@ -135,14 +134,14 @@ describe('Unit Assessment 2 - JS in the DOM', () => {
         `nameInput.style.border='2pxsolidred'`,
         `nameInput.style.border="2pxsolidred"`,
         'nameInput.style.border=`2pxsolidred`'
-      ],
-      responseOne = await checkFiles([jsFile], itemsToCheckOne),
-      itemsToCheckTwo = [
+      ]
+      const responseOne = await checkFiles([jsFile], itemsToCheckOne)
+      const itemsToCheckTwo = [
         `emailInput.style.border='2pxsolidred'`,
         `emailInput.style.border="2pxsolidred"`,
         'emailInput.style.border=`2pxsolidred`'
-      ],
-      responseTwo = await checkFiles([jsFile], itemsToCheckTwo)
+      ]
+      const responseTwo = await checkFiles([jsFile], itemsToCheckTwo)
       expect(responseOne && responseTwo).toBe(true)
     })
     it(`should push an object into the emailList array`, async () => {
@@ -154,8 +153,8 @@ describe('Unit Assessment 2 - JS in the DOM', () => {
         `form.addEventListener('submit',`,
         `form.addEventListener("submit",`,
         'form.addEventListener(`submit`,'
-      ], 
-      response = await checkFiles([jsFile], itemsToCheck)
+      ]
+      const response = await checkFiles([jsFile], itemsToCheck)
       expect(response).toBe(true)
     })
     it(`should call event.preventDefault`, async () => {
@@ -179,17 +178,17 @@ describe('Unit Assessment 2 - JS in the DOM', () => {
         `formContainer=document.getElementsByClassName('form-container')[0]`,
         `formContainer=document.getElementsByClassName("form-container")[0]`,
         'formContainer=document.getElementsByClassName(`form-container`)[0]'
-      ],
-      response = await checkFiles([jsFile], itemsToCheck)
+      ]
+      const response = await checkFiles([jsFile], itemsToCheck)
       expect(response).toBe(true)
     })
     it(`removeMessage should exist and be a function`, async () => {
       const itemsToCheck = [
         'removeMessage=(',
         'removeMessage=_'
-      ],
-      responseOne = await checkFiles([jsFile], itemsToCheck),
-      responseTwo = () => typeof removeMessage === 'function' ? true : false
+      ]
+      const responseOne = await checkFiles([jsFile], itemsToCheck)
+      const responseTwo = () => typeof removeMessage === 'function' ? true : false
       expect(responseOne || responseTwo()).toBe(true)
     })
     it(`should use the remove method to remove the form container`, async () => {
@@ -200,9 +199,9 @@ describe('Unit Assessment 2 - JS in the DOM', () => {
       const itemsToCheck = [
         'displayThankYou=(',
         'displayThankYou=_'
-      ],
-      responseOne = await checkFiles([jsFile], itemsToCheck),
-      responseTwo = () => typeof displayThankYou === 'function' ? true : false
+      ]
+      const responseOne = await checkFiles([jsFile], itemsToCheck)
+      const responseTwo = () => typeof displayThankYou === 'function' ? true : false
       expect(responseOne || responseTwo()).toBe(true)
     })
     it(`uses innerText to change what the form container is displaying`, async () => {
@@ -221,14 +220,14 @@ describe('Unit Assessment 2 - JS in the DOM', () => {
         `nameInput.addEventListener('change',`,
         `nameInput.addEventListener("change",`,
         'nameInput.addEventListener(`change`,'
-      ],
-      itemsTwo = [
+      ]
+      const itemsTwo = [
         `emailInput.addEventListener('change',`,
         `emailInput.addEventListener("change",`,
         'emailInput.addEventListener(`change`,'
-      ],
-      responseOne = await checkFiles([jsFile], itemsOne),
-      responseTwo = await checkFiles([jsFile], itemsTwo)
+      ]
+      const responseOne = await checkFiles([jsFile], itemsOne)
+      const responseTwo = await checkFiles([jsFile], itemsTwo)
       expect(responseOne && responseTwo).toBe(true)
     })
     it(`the callback functions should change the border to none`, async () => {
@@ -236,14 +235,14 @@ describe('Unit Assessment 2 - JS in the DOM', () => {
         `nameInput.style.border='none'`,
         `nameInput.style.border="none"`,
         'nameInput.style.border=`none`'
-      ],
-      itemsTwo = [
+      ]
+      const itemsTwo = [
         `emailInput.style.border='none'`,
         `emailInput.style.border="none"`,
         'emailInput.style.border=`none`'
-      ],
-      responseOne = await checkFiles([jsFile], itemsOne),
-      responseTwo = await checkFiles([jsFile], itemsTwo)
+      ]
+      const responseOne = await checkFiles([jsFile], itemsOne)
+      const responseTwo = await checkFiles([jsFile], itemsTwo)
       expect(responseOne && responseTwo).toBe(true)
     })
   })
@@ -254,8 +253,8 @@ describe('Unit Assessment 2 - JS in the DOM', () => {
         `cart=document.createElement('div')`,
         `cart=document.createElement("div")`,
         'cart=document.createElement(`div`)'
-      ],
-      response = await checkFiles([jsFile], itemsToCheck)
+      ]
+      const response = await checkFiles([jsFile], itemsToCheck)
       expect(response).toBe(true)
     })
     it(`cartItems should exist and be initialized to 0`, async () => {
@@ -266,9 +265,9 @@ describe('Unit Assessment 2 - JS in the DOM', () => {
       const itemsToCheck = [
         'addToCart=(',
         'addToCart=_'
-      ],
-      responseOne = await checkFiles([jsFile], itemsToCheck),
-      responseTwo = () => typeof addToCart === 'function' ? true : false
+      ]
+      const responseOne = await checkFiles([jsFile], itemsToCheck)
+      const responseTwo = () => typeof addToCart === 'function' ? true : false
       expect(responseOne || responseTwo()).toBe(true)
     })
     it(`should use setAttribute to add cart-display class to cart`, async () => {
@@ -276,8 +275,8 @@ describe('Unit Assessment 2 - JS in the DOM', () => {
         `cart.setAttribute('class','cart-display')`,
         `cart.setAttribute("class","cart-display")`,
         'cart.setAttribute(`class`,`cart-display`)'
-      ],
-      response = await checkFiles([jsFile], itemsToCheck)
+      ]
+      const response = await checkFiles([jsFile], itemsToCheck)
       expect(response).toBe(true)
     })
     it(`should appendChild to add the cart div onto main`, async () => {
@@ -288,8 +287,8 @@ describe('Unit Assessment 2 - JS in the DOM', () => {
 
   describe('Step 5 - index.html', () => {
     it(`all 3 buttons should have addToCart in an onclick attribute`, async () => {
-      const responseOne = await countFiles(htmlFile, '<buttononclick="addToCart()">', 3),
-      responseTwo = await countFiles(htmlFile, `<buttononclick='addToCart()'>`, 3)
+      const responseOne = await countFiles(htmlFile, '<buttononclick="addToCart()">', 3)
+      const responseTwo = await countFiles(htmlFile, `<buttononclick='addToCart()'>`, 3)
       expect(responseOne || responseTwo).toBe(true)
     })
   })

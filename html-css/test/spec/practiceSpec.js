@@ -1,160 +1,160 @@
 //Helper Functions
 const searchFiles = async (pathArr, strArr) => {
-  let response = await axios.post(`http://localhost:5782/api/search`, {pathArr, strArr})
+  const response = await axios.post(`http://localhost:5782/api/search`, {pathArr, strArr})
   return response.data
 }
 
 const checkFiles = async (pathArr, strArr) => {
-  let response = await axios.post(`http://localhost:5782/api/check`, {pathArr, strArr})
+  const response = await axios.post(`http://localhost:5782/api/check`, {pathArr, strArr})
   return response.data
 }
 
 //Test Suite
 describe('Unit Assessment 2 -- HTML & CSS', () => {
   describe('The following HTML tags are used in index.html', () => {
-    let htmlFile = ['html-css/index.html']
+    const htmlFile = ['html-css/index.html']
 
     it('section', async () => {
-      let itemsToCheck = [
+      const itemsToCheck = [
         '<section', 
         '</section>'
       ]
-      let response = await searchFiles(htmlFile, itemsToCheck)
+      const response = await searchFiles(htmlFile, itemsToCheck)
       expect(response).toEqual(true)
     })
 
     it('article', async () => {
-      let itemsToCheck = [
+      const itemsToCheck = [
         '<article',
         '</article>'
       ]
-      let response = await searchFiles(htmlFile, itemsToCheck)
+      const response = await searchFiles(htmlFile, itemsToCheck)
       expect(response).toEqual(true)
     })
 
     it('aside', async () => {
-      let itemsToCheck = [
+      const itemsToCheck = [
         '<aside',
         '</aside>'
       ]
-      let response = await searchFiles(htmlFile, itemsToCheck)
+      const response = await searchFiles(htmlFile, itemsToCheck)
       expect(response).toEqual(true)
     })
 
     it('main', async () => {
-      let itemsToCheck = [
+      const itemsToCheck = [
         '<main', 
         '</main>'
       ]
-      let response = await searchFiles(htmlFile, itemsToCheck)
+      const response = await searchFiles(htmlFile, itemsToCheck)
       expect(response).toEqual(true)
     })
 
     it('header', async () => {
-      let itemsToCheck = [
+      const itemsToCheck = [
         '<header', 
         '</header>'
       ]
-      let response = await searchFiles(htmlFile, itemsToCheck)
+      const response = await searchFiles(htmlFile, itemsToCheck)
       expect(response).toEqual(true)
     })
 
     it('nav', async () => {
-      let itemsToCheck = [
+      const itemsToCheck = [
         '<nav',
         '</nav>'
       ]
-      let response = await searchFiles(htmlFile, itemsToCheck)
+      const response = await searchFiles(htmlFile, itemsToCheck)
       expect(response).toEqual(true)
     })
 
     it('body', async () => {
-      let itemsToCheck = [
+      const itemsToCheck = [
         '<body',
         '</body>'
       ]
-      let response = await searchFiles(htmlFile, itemsToCheck)
+      const response = await searchFiles(htmlFile, itemsToCheck)
       expect(response).toEqual(true)
     })
 
     it('footer', async () => {
-      let itemsToCheck = [
+      const itemsToCheck = [
         '<footer', 
         '</footer>'
       ]
-      let response = await searchFiles(htmlFile, itemsToCheck)
+      const response = await searchFiles(htmlFile, itemsToCheck)
       expect(response).toEqual(true)
     })
 
     it('h1', async () => {
-      let itemsToCheck = [
+      const itemsToCheck = [
         '<h1', 
         '</h1>'
       ]
-      let response = await searchFiles(htmlFile, itemsToCheck)
+      const response = await searchFiles(htmlFile, itemsToCheck)
       expect(response).toEqual(true)
     })
 
     it('h2', async () => {
-      let itemsToCheck = [
+      const itemsToCheck = [
         '<h2',
         '</h2>'
       ]
-      let response = await searchFiles(htmlFile, itemsToCheck)
+      const response = await searchFiles(htmlFile, itemsToCheck)
       expect(response).toEqual(true)
     })
 
     it('br', async () => {
-      let itemsToCheck = [
+      const itemsToCheck = [
         '<br'
       ]
-      let response = await searchFiles(htmlFile, itemsToCheck)
+      const response = await searchFiles(htmlFile, itemsToCheck)
       expect(response).toEqual(true)
     })
 
     it('img', async () => {
-      let itemsToCheck = [
+      const itemsToCheck = [
         '<img'
       ]
-      let response = await searchFiles(htmlFile, itemsToCheck)
+      const response = await searchFiles(htmlFile, itemsToCheck)
       expect(response).toEqual(true)
     })
 
     it('ol', async () => {
-      let itemsToCheck = [
+      const itemsToCheck = [
         '<ol',
         '</ol>'
       ]
-      let response = await searchFiles(htmlFile, itemsToCheck)
+      const response = await searchFiles(htmlFile, itemsToCheck)
       expect(response).toEqual(true)
     })
 
     it('li', async () => {
-      let itemsToCheck = [
+      const itemsToCheck = [
         '<li', 
         '</li>'
       ]
-      let response = await searchFiles(htmlFile, itemsToCheck)
+      const response = await searchFiles(htmlFile, itemsToCheck)
       expect(response).toEqual(true)
     })
 
     it('title', async () => {
-      let itemsToCheck = [
+      const itemsToCheck = [
         '<title',
         '</title>'
       ]
-      let response = await searchFiles(htmlFile, itemsToCheck)
+      const response = await searchFiles(htmlFile, itemsToCheck)
       expect(response).toEqual(true)
     })
 
     it('meta tag with name, description, and content attributes', async () => {
-      let itemsToCheck = [
+      const itemsToCheck = [
         '<meta', 
         'name=',
         'description',
         'content='
       ]
-      let response = await searchFiles(htmlFile, itemsToCheck)
+      const response = await searchFiles(htmlFile, itemsToCheck)
       expect(response).toEqual(true)
     })
   })
@@ -162,89 +162,89 @@ describe('Unit Assessment 2 -- HTML & CSS', () => {
 
 
   describe('The following CSS properties and values are used in styles.css', () => {
-    let cssFiles = ['html-css/styles.css']
+    const cssFiles = ['html-css/styles.css']
    
     it('position', async () => {
-      let itemsToCheck = [
+      const itemsToCheck = [
         'position:'
       ]
-      let response = await searchFiles(cssFiles, itemsToCheck)
+      const response = await searchFiles(cssFiles, itemsToCheck)
       expect(response).toEqual(true)
     })
 
     it('display', async () => {
-      let itemsToCheck = [
+      const itemsToCheck = [
         'display:'
       ]
-      let response = await searchFiles(cssFiles, itemsToCheck)
+      const response = await searchFiles(cssFiles, itemsToCheck)
       expect(response).toEqual(true)
     })
 
     it('flex display', async () => {
-      let itemsToCheck = [
+      const itemsToCheck = [
         'display:flex'
       ]
-      let response = await searchFiles(cssFiles, itemsToCheck)
+      const response = await searchFiles(cssFiles, itemsToCheck)
       expect(response).toEqual(true)
     })
 
     it('color', async () => {
-      let itemsToCheck = [ 
+      const itemsToCheck = [ 
         'color:'
       ]
-      let response = await searchFiles(cssFiles, itemsToCheck)
+      const response = await searchFiles(cssFiles, itemsToCheck)
       expect(response).toEqual(true)
     })
 
     it('font-family', async () => {
-      let itemsToCheck = [
+      const itemsToCheck = [
         'font-family:'
       ]
-      let response = await searchFiles(cssFiles, itemsToCheck)
+      const response = await searchFiles(cssFiles, itemsToCheck)
       expect(response).toEqual(true)
     })
 
     it('font-size', async () => {
-      let itemsToCheck = [ 
+      const itemsToCheck = [ 
         'font-size:'
       ]
-      let response = await searchFiles(cssFiles, itemsToCheck)
+      const response = await searchFiles(cssFiles, itemsToCheck)
       expect(response).toEqual(true)
     })
 
     it('padding', async () => {
-      let itemsToCheck = [
+      const itemsToCheck = [
         'padding:'
       ]
-      let response = await searchFiles(cssFiles, itemsToCheck)
+      const response = await searchFiles(cssFiles, itemsToCheck)
       expect(response).toEqual(true)
     })
 
     it('margin', async () => {
-      let itemsToCheck = [
+      const itemsToCheck = [
         'margin:'
       ]
-      let response = await searchFiles(cssFiles, itemsToCheck)
+      const response = await searchFiles(cssFiles, itemsToCheck)
       expect(response).toEqual(true)
     })
 
     it('box-shadow', async () => {
-      let itemsToCheck = [
+      const itemsToCheck = [
         'box-shadow:'
       ]
-      let response = await searchFiles(cssFiles, itemsToCheck)
+      const response = await searchFiles(cssFiles, itemsToCheck)
       expect(response).toEqual(true)
     })
 
     it('use at least one relative unit', async () => {
-      let itemsToCheck = [
+      const itemsToCheck = [
         '%;',
         'vw;',
         'vh;',
         'em;',
         'rem;'
       ]
-      let response = await checkFiles(cssFiles, itemsToCheck)
+      const response = await checkFiles(cssFiles, itemsToCheck)
       expect(response).toEqual(true)
     })
 
