@@ -1,11 +1,16 @@
 //Helper Functions
 const countFiles = async (path, str, count) => {
-  const response = await axios.get(`http://localhost:5782/api/count?path=${path}&str=${str}&count=${count}`)
+  const response = await axios.get(
+    `http://localhost:5782/api/count?path=${path}&str=${str}&count=${count}`
+  )
   return response.data
 }
 
 const checkFiles = async (pathArr, strArr) => {
-  const response = await axios.post(`http://localhost:5782/api/check`, {pathArr, strArr})
+  const response = await axios.post(`http://localhost:5782/api/check`, {
+    pathArr,
+    strArr,
+  })
   return response.data
 }
 
@@ -28,7 +33,7 @@ describe('Unit Assessment 2 -- JavaScript 2', () => {
       expect(response).toBe(true)
     })
   })
-  
+
   describe('Problem 2 - saleProducts', () => {
     it('saleProducts should exist', () => {
       expect(saleProducts).toBeDefined()
@@ -123,7 +128,11 @@ describe('Unit Assessment 2 -- JavaScript 2', () => {
       expect(test).toBe(true)
     })
     it('should use the filter method', async () => {
-      let response = await countFiles(jsFile, 'blueProducts=saleProducts.filter(', 1)
+      let response = await countFiles(
+        jsFile,
+        'blueProducts=saleProducts.filter(',
+        1
+      )
       expect(response).toBe(true)
     })
   })
@@ -136,7 +145,11 @@ describe('Unit Assessment 2 -- JavaScript 2', () => {
       expect(orderTotal).toEqual(1200)
     })
     it('should use reduce method', async () => {
-      const response = await countFiles(jsFile, 'orderTotal=blueProducts.reduce(', 1)
+      const response = await countFiles(
+        jsFile,
+        'orderTotal=blueProducts.reduce(',
+        1
+      )
       expect(response).toBe(true)
     })
   })
@@ -229,14 +242,14 @@ describe('Unit Assessment 2 -- JavaScript 2', () => {
     })
     it('zipCode should be the correct value', () => {
       expect(zipCode).toEqual(85004)
-    }) 
+    })
     it('state should be the correct value', () => {
       expect(state).toEqual('AZ')
     })
     it('should use destructuring', async () => {
       const itemsToCheck = [
-        '{zipCode,state}=shippingInfo', 
-        '{state,zipCode}=shippingInfo'
+        '{zipCode,state}=shippingInfo',
+        '{state,zipCode}=shippingInfo',
       ]
       const response = await checkFiles([jsFile], itemsToCheck)
       expect(response).toBe(true)
@@ -251,7 +264,11 @@ describe('Unit Assessment 2 -- JavaScript 2', () => {
       expect(shouldAlert).toEqual(false)
     })
     it('should use dot notation', async () => {
-      const response = await countFiles(jsFile, 'shouldAlert=userInfo.settings.alerts', 1)
+      const response = await countFiles(
+        jsFile,
+        'shouldAlert=userInfo.settings.alerts',
+        1
+      )
       expect(response).toBe(true)
     })
   })
@@ -265,8 +282,12 @@ describe('Unit Assessment 2 -- JavaScript 2', () => {
     })
     it('should use bracket and/or dot notation', async () => {
       const itemsToCheck = [
-        'topic=userInfo.topics[3]', 
-        'topic=userInfo[topics][3]'
+        'topic=userInfo.topics[3]',
+        `topic=userInfo['topics'][3]`,
+        `topic=userInfo["topics"][3]`,
+        `topic=userInfo.topics[userInfo.topics.length-1]`,
+        `topic=userInfo['topics'][userInfo.topics.length-1]`,
+        `topic=userInfo["topics"][userInfo.topics.length-1]`,
       ]
       const response = await checkFiles([jsFile], itemsToCheck)
       expect(response).toBe(true)
@@ -333,7 +354,7 @@ describe('Unit Assessment 2 -- JavaScript 2', () => {
       expect(person.jobs.length).toBe(3)
     })
     it(`person's birthday method should function correctly`, () => {
-      const originalPerson = {...person}
+      const originalPerson = { ...person }
       originalPerson.birthday()
       expect(originalPerson.age > person.age).toBe(true)
     })
@@ -390,5 +411,4 @@ describe('Unit Assessment 2 -- JavaScript 2', () => {
       expect(context2).toBe(window)
     })
   })
-
 })

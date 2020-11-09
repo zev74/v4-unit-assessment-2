@@ -3,29 +3,29 @@
 //DO NOT EDIT CODE BELOW
 let foods = [
   {
-    name: 'bread', 
+    name: 'bread',
     carbs: 36,
     protein: 8,
-    fat: 2
-  }, 
+    fat: 2,
+  },
   {
     name: 'mayo mustard mix',
     carbs: 0,
     protein: 0,
-    fat: 10
+    fat: 10,
   },
   {
     name: 'turkey',
     carbs: 0,
     protein: 25,
-    fat: 1
+    fat: 1,
   },
   {
     name: 'cheese',
     carbs: 0,
     protein: 5,
-    fat: 7
-  }
+    fat: 7,
+  },
 ]
 //DO NOT EDIT THE CODE ABOVE
 
@@ -36,7 +36,6 @@ let foods = [
 */
 
 //CODE HERE
-
 
 //////////////////////////////////PROBLEMS 2-4//////////////////////////////////
 /*
@@ -49,28 +48,28 @@ const products = [
   {
     name: 'backpack',
     color: ['red', 'yellow'],
-    price: 500
+    price: 500,
   },
   {
     name: 'shirt',
     color: ['blue'],
-    price: 400
+    price: 400,
   },
   {
-    name: 'shoes', 
+    name: 'shoes',
     color: ['red'],
-    price: 1200
+    price: 1200,
   },
   {
     name: 'socks',
     color: ['yellow', 'blue'],
-    price: 200
+    price: 200,
   },
   {
-    name: 'pants', 
+    name: 'pants',
     color: ['blue', 'red'],
-    price: 1000
-  }
+    price: 1000,
+  },
 ]
 //DO NOT EDIT CODE ABOVE
 
@@ -83,7 +82,6 @@ const products = [
 
 //CODE HERE
 
-
 ////////////////////PROBLEM 3////////////////////
 /*
   A customer has placed an order - they want one of every product that has blue on it. 
@@ -94,7 +92,6 @@ const products = [
 
 //CODE HERE
 
-
 ////////////////////PROBLEM 4////////////////////
 /*
   Now you'd like to get them their order total. 
@@ -103,7 +100,6 @@ const products = [
 */
 
 //CODE HERE
-
 
 //////////////////////////////////PROBLEMS 5-8//////////////////////////////////
 /*
@@ -115,15 +111,15 @@ const products = [
 const contactInfo = {
   name: 'Helen',
   phoneNumber: 1234445555,
-  email: 'helen@mymail.com'
+  email: 'helen@mymail.com',
 }
 
 const shippingInfo = {
   name: 'Helen',
   street: '100 E. Main Street',
-  city: 'Anytown', 
+  city: 'Anytown',
   state: 'AZ',
-  zipCode: 85004
+  zipCode: 85004,
 }
 //DO NOT EDIT CODE ABOVE
 
@@ -144,14 +140,12 @@ const shippingInfo = {
 
 //CODE HERE
 
-
 ////////////////////PROBLEM 7////////////////////
 /* 
   Save Ellen's email to a new variable using destructuring.
 */
 
 //CODE HERE
-
 
 ////////////////////PROBLEM 8////////////////////
 /*
@@ -160,8 +154,6 @@ const shippingInfo = {
 */
 
 //CODE HERE
-
-
 
 //////////////////////////////////PROBLEMS 9-11//////////////////////////////////
 /*
@@ -173,47 +165,47 @@ const userInfo = {
   name: 'gn@rly_c0der_007',
   password: 'reallySuperSecret1',
   settings: {
-    theme: 'dark', 
-    fontSize: 14, 
-    alerts: false
-  }, 
+    theme: 'dark',
+    fontSize: 14,
+    alerts: false,
+  },
   topics: ['food', 'hiking', 'gaming', 'tech'],
   comments: [
     {
-      post: 'New Phones Coming in September', 
+      post: 'New Phones Coming in September',
       comment: 'Excited to get one of these!',
       upvotes: 5,
       responses: [
         {
-          userId: 3827, 
-          response: 'Me too!'
+          userId: 3827,
+          response: 'Me too!',
         },
         {
           userId: 1040,
-          response: 'Want to learn about the pyramid scheme I bought into?'
-        }
-      ]
+          response: 'Want to learn about the pyramid scheme I bought into?',
+        },
+      ],
     },
     {
       post: 'Best Hiking in Your Town',
-      comment: 'Trail #402 is closed in the winter', 
+      comment: 'Trail #402 is closed in the winter',
       upvotes: 100,
       responses: [
         {
           userId: 1084,
-          response: 'Thanks for the info'
+          response: 'Thanks for the info',
         },
         {
           userId: 5498,
-          response: 'You saved me a trip out there, thank you!'
-        }, 
+          response: 'You saved me a trip out there, thank you!',
+        },
         {
           userId: 3597,
-          response: 'Good to know'
-        }
-      ]
-    }
-  ]
+          response: 'Good to know',
+        },
+      ],
+    },
+  ],
 }
 //DO EDIT CODE ABOVE
 
@@ -225,7 +217,6 @@ const userInfo = {
 
 //CODE HERE
 
-
 ////////////////////PROBLEM 10////////////////////
 /*
   Set the value of topic below to the last item in gn@rly_c0der_007's topics array
@@ -234,7 +225,6 @@ const userInfo = {
 
 //CODE HERE
 
-
 ////////////////////PROBLEM 11////////////////////
 /*
   Set the value of commenterId below to the userId of the first response to 
@@ -242,7 +232,6 @@ const userInfo = {
 */
 
 //CODE HERE
-
 
 ////////////////////PROBLEM 12////////////////////
 /*
@@ -263,7 +252,6 @@ const userInfo = {
 
 //CODE HERE
 
-
 //////////////////////////////////PROBLEMS 13-14//////////////////////////////////
 /*
   For the last two problems, you will be determining the 
@@ -277,19 +265,18 @@ const userInfo = {
 */
 
 const workout = {
-  type: 'strength training', 
+  type: 'strength training',
   duration: 45,
   complete: false,
-  doWorkout: function() {
-      return this.complete = true
-  }
+  doWorkout: function () {
+    return (this.complete = true)
+  },
 }
 
 //let context1 = myFunc
 //let context1 = window
 //let context1 = global
 // let context1 = workout
-
 
 ////////////////////PROBLEM 14////////////////////
 /*
