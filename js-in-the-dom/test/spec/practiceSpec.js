@@ -175,11 +175,7 @@ describe('Unit Assessment 2 - JS in the DOM', () => {
       expect(response).toBe(true)
     })
     it(`should call event.preventDefault`, async () => {
-      const response = await countFiles(jsFile, 'event.preventDefault')
-      expect(response).toBe(true)
-    })
-    it(`should call validateForm`, async () => {
-      const response = await countFiles(jsFile, 'validateForm()')
+      const response = await countFiles(jsFile, '.preventDefault')
       expect(response).toBe(true)
     })
   })
@@ -200,17 +196,18 @@ describe('Unit Assessment 2 - JS in the DOM', () => {
     //   const response = await checkFiles([jsFile], itemsToCheck)
     //   expect(response).toBe(true)
     // })
-    it(`removeMessage should exist and be a function`, async () => {
-      const itemsToCheck = ['removeMessage=(', 'removeMessage=_']
-      const responseOne = await checkFiles([jsFile], itemsToCheck)
-      const responseTwo = () =>
-        typeof removeMessage === 'function' ? true : false
-      expect(responseOne || responseTwo()).toBe(true)
-    })
-    it(`should use the remove method to remove the form container`, async () => {
-      const response = await countFiles(jsFile, 'formContainer.remove(')
-      expect(response).toBe(true)
-    })
+    //! This is a stretch goal and the instructions don't specify to call the function removeMessage
+    // it(`removeMessage should exist and be a function`, async () => {
+    //   const itemsToCheck = ['removeMessage=(', 'removeMessage=_']
+    //   const responseOne = await checkFiles([jsFile], itemsToCheck)
+    //   const responseTwo = () =>
+    //     typeof removeMessage === 'function' ? true : false
+    //   expect(responseOne || responseTwo()).toBe(true)
+    // })
+    // it(`should use the remove method to remove the form container`, async () => {
+    //   const response = await countFiles(jsFile, 'formContainer.remove(')
+    //   expect(response).toBe(true)
+    // })
     it(`displayThankYou should exist and be a function`, async () => {
       const itemsToCheck = ['displayThankYou=(', 'displayThankYou=_']
       const responseOne = await checkFiles([jsFile], itemsToCheck)
@@ -286,14 +283,23 @@ describe('Unit Assessment 2 - JS in the DOM', () => {
       const responseTwo = () => (typeof addToCart === 'function' ? true : false)
       expect(responseOne || responseTwo()).toBe(true)
     })
-    it(`should use setAttribute to add cart-display class to cart`, async () => {
+    it(`should use setAttribute or classList to add cart-display class to cart`, async () => {
       const itemsToCheck = [
         `cart.setAttribute('class','cart-display')`,
         `cart.setAttribute("class","cart-display")`,
         'cart.setAttribute(`class`,`cart-display`)',
       ]
+
+      const otherItemsToCheck = [
+        `cart.classList.add('cart-display')`,
+        `cart.classList.add("cart-display")`,
+        'cart.classList.add(`cart-display`)',
+      ]
+
       const response = await checkFiles([jsFile], itemsToCheck)
-      expect(response).toBe(true)
+      const otherResponse = await checkFiles([jsFile], otherItemsToCheck)
+      const eitherOne = response || otherResponse
+      expect(eitherOne).toBe(true)
     })
     it(`should appendChild to add the cart div onto main`, async () => {
       const response = await countFiles(jsFile, 'main.appendChild(cart)')
