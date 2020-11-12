@@ -69,7 +69,6 @@ describe('Unit Assessment 2 - JS in the DOM', () => {
         const response = await checkFiles([jsFile], itemsToCheck)
         expect(response).toBe(true)
       })
-
     })
   })
 
@@ -151,10 +150,6 @@ describe('Unit Assessment 2 - JS in the DOM', () => {
         const response = await countFiles(jsFile, '.preventDefault(')
         expect(response).toBe(true)
       })
-      it(`callback should also invoke validateForm`, async () => {
-        const response = await countFiles(jsFile, 'validateForm()')
-        expect(response).toBe(true)
-      })
     })
   })
 
@@ -173,8 +168,8 @@ describe('Unit Assessment 2 - JS in the DOM', () => {
         const itemsToCheck = ['removeMessage=(', 'removeMessage=_']
         const responseOne = await checkFiles([jsFile], itemsToCheck)
         const responseTwo = () =>
-        typeof removeMessage === 'function' ? true : false
-      expect(responseOne || responseTwo()).toBe(true)
+          typeof removeMessage === 'function' ? true : false
+        expect(responseOne || responseTwo()).toBe(true)
       })
       it(`should use the remove method to remove the form container`, async () => {
         const response = await countFiles(jsFile, 'formContainer.remove(')
@@ -190,7 +185,7 @@ describe('Unit Assessment 2 - JS in the DOM', () => {
         const itemsToCheck = ['displayThankYou=(', 'displayThankYou=_']
         const responseOne = await checkFiles([jsFile], itemsToCheck)
         const responseTwo = () =>
-        typeof displayThankYou === 'function' ? true : false
+          typeof displayThankYou === 'function' ? true : false
         expect(responseOne || responseTwo()).toBe(true)
       })
       it(`uses innerText to change what the form container is displaying`, async () => {
@@ -219,7 +214,7 @@ describe('Unit Assessment 2 - JS in the DOM', () => {
         ]
         const response = await checkFiles([jsFile], itemsToCheck)
         expect(response).toBe(true)
-      }) 
+      })
     })
     describe(`the callback functions should change the border to none`, () => {
       it(`nameInput's border is set to none`, async () => {
@@ -271,7 +266,8 @@ describe('Unit Assessment 2 - JS in the DOM', () => {
       it(`should be a function`, async () => {
         const itemsToCheck = ['addToCart=(', 'addToCart=_']
         const responseOne = await checkFiles([jsFile], itemsToCheck)
-        const responseTwo = () => (typeof addToCart === 'function' ? true : false)
+        const responseTwo = () =>
+          typeof addToCart === 'function' ? true : false
         expect(responseOne || responseTwo()).toBe(true)
       })
       it(`should use setAttribute to add cart-display class to cart`, async () => {
