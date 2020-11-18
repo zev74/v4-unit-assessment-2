@@ -60,7 +60,7 @@ const desert = ['rattlesnake', 'coyote']
   
 ////////////////////PROBLEM 5////////////////////
 /*
-    Write a one line arrow function called 'bestMovie' that takes in one parameter,
+    Write a one line arrow function called 'bestMovie' that takes in one parameter, called movie, 
     which will be a string of a movie title. 
     The function should return the string: 'MOVEIEPARAM is the best movie ever!'. 
     For example, if we passed in 'Sharknado', 

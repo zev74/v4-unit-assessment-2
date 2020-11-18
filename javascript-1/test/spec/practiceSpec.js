@@ -95,7 +95,7 @@ describe('Unit Assessment 2 -- JavaScript 1', () => {
     it('bestMovie should function properly', () => {
       expect(bestMovie('Sharknado')).toBe('Sharknado is the best movie ever!')
     })
-    it('should be an arrow function', async () => {
+    it('should be an arrow function that takes in a "movie" parameter', async () => {
       const response = await checkFiles([jsFile], ['bestMovie=(movie)=>', 'bestMovie=movie=>'])
       expect(response).toBe(true)
     })
