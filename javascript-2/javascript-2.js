@@ -37,6 +37,15 @@ let foods = [
 
 //CODE HERE
 
+foods.forEach(function(element) {
+  let carb = element.carbs * 4;
+  let pro = element.protein * 4;
+  let f = element.fat * 9;
+  element.calories = carb + pro + f
+}) 
+
+
+
 //////////////////////////////////PROBLEMS 2-4//////////////////////////////////
 /*
   For problems 2-4, you will be working with the products array below.
@@ -81,6 +90,11 @@ const products = [
 */
 
 //CODE HERE
+const saleProducts = products.map( function(current) {
+  let off = current.price / 4;
+  current.price -= off
+  return current
+})
 
 ////////////////////PROBLEM 3////////////////////
 /*
@@ -91,6 +105,14 @@ const products = [
 */
 
 //CODE HERE
+const blueProducts = saleProducts.filter(function(current) {
+   if(current.color.includes('blue')) {
+    return current
+   }
+  })
+
+
+
 
 ////////////////////PROBLEM 4////////////////////
 /*
@@ -100,6 +122,9 @@ const products = [
 */
 
 //CODE HERE
+const orderTotal = blueProducts.reduce(function(counter, current) {
+  return counter + current.price
+}, 0) 
 
 //////////////////////////////////PROBLEMS 5-8//////////////////////////////////
 /*
@@ -130,6 +155,9 @@ const shippingInfo = {
 */
 
 //CODE HERE
+let helensInfo = Object.assign({}, contactInfo, shippingInfo)
+console.log(helensInfo)
+
 
 ////////////////////PROBLEM 6////////////////////
 /*
@@ -139,6 +167,15 @@ const shippingInfo = {
 */
 
 //CODE HERE
+let ellensName = 'Ellen'
+let ellensEmail = 'ellen@email.com'
+
+//const {...helensInfo, name: ellensName} = elensInfo
+
+
+
+
+
 
 ////////////////////PROBLEM 7////////////////////
 /* 
@@ -147,6 +184,11 @@ const shippingInfo = {
 
 //CODE HERE
 
+
+
+
+
+
 ////////////////////PROBLEM 8////////////////////
 /*
   In a single expression (one line), save the zip code and state 
@@ -154,6 +196,11 @@ const shippingInfo = {
 */
 
 //CODE HERE
+
+
+
+
+
 
 //////////////////////////////////PROBLEMS 9-11//////////////////////////////////
 /*
@@ -216,6 +263,8 @@ const userInfo = {
 */
 
 //CODE HERE
+let shouldAlert = userInfo.settings.alerts
+
 
 ////////////////////PROBLEM 10////////////////////
 /*
@@ -224,6 +273,12 @@ const userInfo = {
 */
 
 //CODE HERE
+let topic =  userInfo.topics[3]
+
+
+
+
+
 
 ////////////////////PROBLEM 11////////////////////
 /*
@@ -232,6 +287,7 @@ const userInfo = {
 */
 
 //CODE HERE
+let commenterId = userInfo.comments[1].responses[0].userId
 
 ////////////////////PROBLEM 12////////////////////
 /*
@@ -251,6 +307,22 @@ const userInfo = {
 */
 
 //CODE HERE
+const person = {
+  name: 'what',
+  age: 24,
+  jobs: ['nothing', 'something', 'whatever'],
+  birthday: function(){
+    this.age++
+  },
+  favorites: {
+    color: 'yellow',
+    number: 7,
+    book: 'Men In Black',
+    kids: [{name: 'firstKid', age: 1}, {name: 'secondKid', age: 2}]
+  }
+}
+
+
 
 //////////////////////////////////PROBLEMS 13-14//////////////////////////////////
 /*
@@ -276,7 +348,7 @@ const workout = {
 //let context1 = myFunc
 //let context1 = window
 //let context1 = global
-// let context1 = workout
+let context1 = workout
 
 ////////////////////PROBLEM 14////////////////////
 /*
@@ -289,6 +361,6 @@ function myFunc() {
 }
 
 //let context2 = myFunc
-// let context2 = window
+ let context2 = window
 //let context2 = global
 //let context2 = workout

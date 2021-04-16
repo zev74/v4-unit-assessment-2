@@ -9,6 +9,7 @@
 */
 
 //CODE HERE
+const myArr = [4, 'abc', ['cat', 'dog', 'bird'], 77]
 
 
 ////////////////////PROBLEM 2////////////////////
@@ -21,6 +22,8 @@
 const nestedLetters = ['m', 'g', 'e', 'q', 'h', ['n', 'b', ['v', 'z', 'y', 'r']], 'a']
 
 //CODE HERE
+const foundZ = nestedLetters[5][2][1]
+console.log(foundZ)
 
 
 ////////////////////PROBLEM 3////////////////////
@@ -37,6 +40,8 @@ const desert = ['rattlesnake', 'coyote']
 //DO NOT EDIT CODE ABOVE
 
 //CODE HERE
+const animals = [...forest, ...ocean, ...savannah, ...desert]
+console.log(animals)
 
 
 /*
@@ -45,6 +50,8 @@ const desert = ['rattlesnake', 'coyote']
 */
 
 //CODE HERE
+const animalsCopy = [...animals, 'elephant']
+console.log(animalsCopy)
 
 
 ////////////////////PROBLEM 4////////////////////
@@ -56,6 +63,13 @@ const desert = ['rattlesnake', 'coyote']
 */
 
 //CODE HERE
+let compareNums = (num1, num2) => {
+  if (num1 > num2) {
+      return num1
+  }
+  return num2
+}
+
 
   
 ////////////////////PROBLEM 5////////////////////
@@ -68,6 +82,8 @@ const desert = ['rattlesnake', 'coyote']
 */
 
 //CODE HERE
+bestMovie = title => `${title} is the best movie ever!`;
+
   
   
 ////////////////////PROBLEM 6////////////////////
@@ -76,6 +92,7 @@ const desert = ['rattlesnake', 'coyote']
 */
 
 //CODE HERE
+const jsNinja = () => 'I am a JavaScript ninja!'
   
 
 ////////////////////PROBLEM 7////////////////////
@@ -97,6 +114,7 @@ const desert = ['rattlesnake', 'coyote']
 */
 
 //CODE HERE
+delete gameInfo.rating
   
 
 ////////////////////PROBLEM 8////////////////////
@@ -119,6 +137,11 @@ const desert = ['rattlesnake', 'coyote']
 */
 
 //CODE HERE
+for (let shape in shapes) {
+    if (shapes[shape] % 2 !== 0) {
+      delete shapes[shape]
+    }
+}
   
   
 ////////////////////PROBLEM 9////////////////////
@@ -161,6 +184,15 @@ const classes = [
 */
 
 //CODE HERE
+for(let kita in classes) {
+    for(let item in classes[kita]) {
+        console.log(classes[kita][item])
+        if(classes[kita][item] === true) {
+            classes[kita][item] = false
+        }
+    }
+}
+console.log(classes)
 
   
 ////////////////////PROBLEM 10////////////////////
@@ -174,9 +206,27 @@ const classes = [
 //DO NOT EDIT CODE BELOW  
 const lettersToPair = ['e', 'k', 's', 'a', 'e', 's', 'a', 'n', 'k', 'n']  
 let pairsArray = []
+let new_arr = []
 //DO NOT EDIT CODE ABOVE
 
 //CODE HERE
+for (let item in lettersToPair) {
+    for (let compItem in lettersToPair) {
+        if(lettersToPair[item] === lettersToPair[compItem]) {
+            if(item === compItem) {
+                console.log('same index, doesnt count')
+            }
+            else {
+                new_arr.push(compItem)
+                new_arr.push(item)
+                console.log(new_arr)
+
+                pairsArray.push([item, compItem])
+            }
+        }
+    }
+}
+console.log(pairsArray)
 
     
 
@@ -194,7 +244,12 @@ let pairsArray = []
 */
 
 //CODE HERE
-
+const Dog = function(name, age, breed, tricks) {
+  this.name = name
+  this.age = age
+  this.breed = breed
+  this.tricks = tricks
+}
 
 /*
     Invoke your dog constructor passing in 'Fido' for the name, 3 for the age, 
@@ -203,6 +258,7 @@ let pairsArray = []
 */
 
 //CODE HERE
+const fido = new Dog('Fido', 3, 'Jack Russell', ['sit', 'shake'])
   
 
 ////////////////////PROBLEM 12////////////////////
@@ -213,6 +269,12 @@ let pairsArray = []
 */
 
 //CODE HERE
+function bark(names) {
+    return `${names} says bark!`
+}
+
+
+
 
 
 /*
@@ -221,6 +283,8 @@ let pairsArray = []
 */
 
 //CODE HERE
+const fidoSpeak = bark.call(fido)
+
   
   
 ////////////////////PROBLEM 13////////////////////
@@ -233,6 +297,11 @@ let pairsArray = []
 
 //CODE HERE
 
+function teachTrick(trick) {
+  this.tricks.push(trick)
+  return tricks
+}
+
 
 /*
     Invoke the bind method on teachTrick, passing in fido as the context and the string 'stay' as a trick.
@@ -240,8 +309,9 @@ let pairsArray = []
 */
 
 //CODE HERE
+const teachStay = teachTrick.bind(fido, 'stay')
   
-  
+   
 ////////////////////PROBLEM 14////////////////////
 /*
     Write a function called 'dogIntro' that will take in two parameters, treat and toy,
@@ -251,6 +321,9 @@ let pairsArray = []
 */
 
 //CODE HERE
+function dogIntro(treat, toy) {
+  return `${this.name} is a ${this.breed} that loves ${treat} and their ${toy}`
+}
 
 
 /*
@@ -260,6 +333,7 @@ let pairsArray = []
 */
 
 //CODE HERE
+const fidoIntro = dogIntro.apply(fido, ['chicken', 'tennis ball'])
   
 
 ////////////////////PROBLEM 15////////////////////
@@ -270,6 +344,13 @@ let pairsArray = []
 */
 
 //CODE HERE
+function Phone(brand, model, storage, color, sold) {
+  this.brand = brand;
+  this.model = model;
+  this.storage = storage;
+  this.color = color;
+  this.sold = sold;
+}
 
   
 /*
@@ -284,11 +365,12 @@ let pairsArray = []
 */
 
 //CODE HERE
-  // let phone1 = 
+let phone1 = new Phone('moto', 'g', 128, 'blue', false);
   
-  // let phone2 = 
+let phone2 = new Phone('samsung', 's10', 128, 'blue', false);
   
-  // let phone3 = 
+let phone3 = new Phone('apple', '7', 128, 'yellow', false);
+  
   
 /*
     Last, add a prototype method to Phone.
@@ -299,5 +381,9 @@ let pairsArray = []
 */
 
 //CODE HERE
+Phone.prototype.sell = function() {
+    this.sold = true
+    return `${this.brand} ${this.model} has been sold.`
+}
 
   
